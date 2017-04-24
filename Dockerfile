@@ -7,7 +7,7 @@
 # Pull base image
 FROM  openjdk:8
 
-ENV SCALA_VERSION 2.12.1
+ENV SCALA_VERSION 2.11.11
 ENV SBT_VERSION 0.13.15
 
 # Scala expects this file
@@ -27,6 +27,7 @@ RUN \
   rm sbt-$SBT_VERSION.deb && \
   apt-get update && \
   apt-get install sbt && \
+  apt-get -y install openjfx && \
   sbt sbtVersion
 
 # Define working directory
