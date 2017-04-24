@@ -1,7 +1,7 @@
 #
-# Scala and sbt Dockerfile
+# Scala,sbt (with common plugins) and JavaFX Dockerfile
 #
-# https://github.com/hseeberger/scala-sbt
+# https://bitbucket.org/OPAL-Project/dockerforopal
 #
 
 # Pull base image
@@ -32,3 +32,10 @@ RUN \
 
 # Define working directory
 WORKDIR /root
+
+# Contains common sbt plugins (in particular those used by OPAL)
+# https://bitbucket.org/delors/opal/raw/master/project/plugins.sbt
+# https://bitbucket.org/delors/opal/raw/master/project/build.properties
+
+
+
