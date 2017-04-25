@@ -41,5 +41,8 @@ add https://bitbucket.org/delors/opal/raw/master/project/build.properties .
 
 WORKDIR /root/OPAL
 
-# Force the downloading of the plugins.
-RUN sbt sbtVersion
+# Force the downloading and compilation of the plugins.
+RUN \
+  mkdir -p src/main/scala && \
+  touch src/main/scala/Null.scala && \
+  sbt compile sbtVersion
