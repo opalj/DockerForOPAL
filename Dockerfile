@@ -27,15 +27,19 @@ RUN \
   rm sbt-$SBT_VERSION.deb && \
   apt-get update && \
   apt-get install sbt && \
-  apt-get -y install openjfx && \
-  sbt sbtVersion
+  apt-get -y install openjfx
 
-# Define working directory
+
+# Create directories which contain a basic SBT project which refers to the plug-ins used by OPAL
 WORKDIR /root
+WORKDIR OPAL
+WORKDIR project
 
-# Contains common sbt plugins (in particular those used by OPAL)
-# https://bitbucket.org/delors/opal/raw/master/project/plugins.sbt
-# https://bitbucket.org/delors/opal/raw/master/project/build.properties
+# Download the most current, stable version of OPAL's sbt plugin configuration
+add https://bitbucket.org/delors/opal/raw/master/project/plugins.sbt .
+add https://bitbucket.org/delors/opal/raw/master/project/build.properties .
 
+WORKDIR /root/OPAL
 
-
+# Force the downloading of the plugins.
+RUN sbt sbtVersion
