@@ -18,7 +18,7 @@ docker pull opalj/sbt_scala_javafx
 ```
 Alternatively, you can build an image from Dockerfile:
 ```
-docker build -t opalj/sbt_scala_javafx bitbucket.org/OPAL-Project/dockerforopal
+docker build -t opalj/sbt_scala_javafx https://bitbucket.org/OPAL-Project/dockerforopal.git
 ```
 
 ## Usage ##
