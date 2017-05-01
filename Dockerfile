@@ -36,8 +36,9 @@ WORKDIR OPAL
 WORKDIR project
 
 # Download the most current, stable version of OPAL's sbt plugin configuration
-ADD https://bitbucket.org/delors/opal/raw/master/project/plugins.sbt .
 ADD https://bitbucket.org/delors/opal/raw/master/project/build.properties .
+ADD https://bitbucket.org/delors/opal/raw/master/project/libraries.sbt .
+ADD https://bitbucket.org/delors/opal/raw/master/project/plugins.sbt .
 
 WORKDIR /root/OPAL
 

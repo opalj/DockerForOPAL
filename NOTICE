@@ -1,2 +1,3 @@
-Based on the Dockecontainer created by
-Heiko Seeberger (https://hub.docker.com/r/hseeberger/scala-sbt/)
+Based on the Docker container created by Heiko Seeberger:
+
+    https://hub.docker.com/r/hseeberger/scala-sbt/
