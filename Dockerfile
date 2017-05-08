@@ -29,21 +29,16 @@ RUN \
   apt-get install sbt && \
   apt-get -y install openjfx
 
+# Install the template project using the latest release
+WORKDIR /root
+WORKDIR MyOPALProject
+RUN \
+    git clone --depth 1 https://bitbucket.org/OPAL-Project/myopalproject.git . && \
+    sbt run
 
-# Create directories which contain a basic SBT project which refers to the plug-ins used by OPAL
+# Install the most current snapshot version (at the time of building this image) found in the master branch
 WORKDIR /root
 WORKDIR OPAL
-WORKDIR project
-
-# Download the most current, stable version of OPAL's sbt plugin configuration
-ADD https://bitbucket.org/delors/opal/raw/master/project/build.properties .
-ADD https://bitbucket.org/delors/opal/raw/master/project/libraries.sbt .
-ADD https://bitbucket.org/delors/opal/raw/master/project/plugins.sbt .
-
-WORKDIR /root/OPAL
-
-# Force the downloading and compilation of the plugins.
 RUN \
-  mkdir -p src/main/scala && \
-  touch src/main/scala/Null.scala && \
-  sbt compile sbtVersion
+  git clone --depth 1 https://delors@bitbucket.org/delors/opal.git . && \
+  sbt buildAll 
