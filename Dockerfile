@@ -41,4 +41,4 @@ WORKDIR /root
 WORKDIR OPAL
 RUN \
   git clone --depth 1 https://delors@bitbucket.org/delors/opal.git . && \
-  sbt buildAll 
+  sbt compile 
