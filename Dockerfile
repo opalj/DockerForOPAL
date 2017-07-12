@@ -26,7 +26,10 @@ RUN \
   dpkg -i sbt-$SBT_VERSION.deb && \
   rm sbt-$SBT_VERSION.deb && \
   apt-get update && \
-  apt-get install sbt && \
+  apt-get install sbt
+  
+# Install openjfx  
+RUN \  
   apt-get -y install openjfx
 
 # Install the template project using the latest release
