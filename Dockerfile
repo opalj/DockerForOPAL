@@ -36,9 +36,9 @@ RUN \
     git clone --depth 1 https://bitbucket.org/OPAL-Project/myopalproject.git . && \
     sbt run
 
-# Install the most current snapshot version (at the time of building this image) found in the master branch
+# Install the most current snapshot version (at the time of building this image) found in the develop branch
 WORKDIR /root
 WORKDIR OPAL
 RUN \
-  git clone --depth 1 https://delors@bitbucket.org/delors/opal.git . && \
+  git clone -b develop --depth 1 https://delors@bitbucket.org/delors/opal.git . && \
   sbt compile 
