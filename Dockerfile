@@ -8,7 +8,7 @@
 FROM  openjdk:8
 
 ENV SCALA_VERSION 2.11.11
-ENV SBT_VERSION 0.13.15
+ENV SBT_VERSION 0.13.16
 
 # Scala expects this file
 RUN touch /usr/lib/jvm/java-8-openjdk-amd64/release
@@ -45,3 +45,4 @@ WORKDIR OPAL
 RUN \
   git clone -b develop --depth 1 https://delors@bitbucket.org/delors/opal.git . && \
   sbt compile 
+
