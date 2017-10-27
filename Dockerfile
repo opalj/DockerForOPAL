@@ -26,7 +26,10 @@ RUN \
   dpkg -i sbt-$SBT_VERSION.deb && \
   rm sbt-$SBT_VERSION.deb && \
   apt-get update && \
-  apt-get install sbt && \
+  apt-get install sbt
+  
+# Install openjfx  
+RUN \  
   apt-get -y install openjfx
 
 # Install the template project using the latest release
@@ -36,9 +39,10 @@ RUN \
     git clone --depth 1 https://bitbucket.org/OPAL-Project/myopalproject.git . && \
     sbt run
 
-# Install the most current snapshot version (at the time of building this image) found in the master branch
+# Install the most current snapshot version (at the time of building this image) found in the develop branch
 WORKDIR /root
 WORKDIR OPAL
 RUN \
-  git clone --depth 1 https://delors@bitbucket.org/delors/opal.git . && \
-  sbt buildAll 
+  git clone -b develop --depth 1 https://delors@bitbucket.org/delors/opal.git . && \
+  sbt compile 
+
