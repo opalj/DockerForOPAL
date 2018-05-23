@@ -1,4 +1,4 @@
-# Scala 2.12.4, sbt 0.13.16 (with plugins) and JavaFX Dockerfile
+# Scala 2.12.6, sbt 1.1.5 (with plugins) and JavaFX Dockerfile
 
 This repository contains a **Dockerfile** with [Scala](http://www.scala-lang.org), [sbt](http://www.scala-sbt.org), the OpenJDK 8, OpenFX and the latest snapshot version of [OPAL](http://www.opal-project.de) and a sample project using the latest released version of OPAL.
 
