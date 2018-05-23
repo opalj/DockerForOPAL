@@ -7,8 +7,8 @@
 # Pull base image
 FROM  openjdk:8
 
-ENV SCALA_VERSION 2.12.4
-ENV SBT_VERSION 0.13.16
+ENV SCALA_VERSION 2.12.6
+ENV SBT_VERSION 1.1.5
 
 # Scala expects this file
 RUN touch /usr/lib/jvm/java-8-openjdk-amd64/release
@@ -27,9 +27,9 @@ RUN \
   rm sbt-$SBT_VERSION.deb && \
   apt-get update && \
   apt-get install sbt
-  
-# Install openjfx  
-RUN \  
+
+# Install openjfx
+RUN \
   apt-get -y install openjfx
 
 # Install the template project using the latest release
@@ -44,5 +44,4 @@ WORKDIR /root
 WORKDIR OPAL
 RUN \
   git clone -b develop --depth 1 https://delors@bitbucket.org/delors/opal.git . && \
-  sbt compile 
-
+  sbt compile
